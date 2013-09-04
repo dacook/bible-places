@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  </head>
+  <body style="padding-top: 50px;">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">
+              Dave's First Sinatra App
+            </a>
+            <ul class="nav pull-right">
+              <li><a href="/">Home</a></li>
+              <li><a href="/users">List users</a></li>
+              <li><a href="/ebcc_events2">EBCC Calendar</a></li>
+              <li><a href="/storylive">Storylive</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= flash[:notice] %>
+      <% end %>
+      <% if flash[:error] %>
+        <p class="alert alert-error"><%= flash[:error] %>
+      <% end %> 
+      <%= yield %>
+    </div>
+  </body>
+</html>

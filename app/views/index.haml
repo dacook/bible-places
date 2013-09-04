@@ -1,0 +1,12 @@
+%html
+  %head
+    %script(src="http://maps.googleapis.com/maps/api/js?key=#{settings.map_key}&sensor=false")
+    %script(src="javascripts/app.js")
+    %link(rel="stylesheet" href="stylesheets/app.css")
+      
+  %body
+    %div#pane1.pane
+      %div#biblePassage
+        != @bible_passage
+    %div#pane2.pane
+      %div#googleMap

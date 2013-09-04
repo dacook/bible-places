@@ -1,0 +1,7 @@
+/*Superscript and greyed*/
+.chapter-num, .verse-num, .footnote {
+  font-size: .83em;
+  vertical-align: super;
+  color: grey;
+  line-height: 0;
+}
