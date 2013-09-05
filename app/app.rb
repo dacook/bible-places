@@ -21,11 +21,18 @@ enable :sessions
 
 require './app/helpers/esv_helper.rb'
 get '/' do
+  ref = params[:passage]
+  ref = "Acts 1" unless ref
 
   bible = ESV.new(settings.esv_key || 'IP')
-  @bible_passage = bible.doPassageQuery(params[:passage])
+  @bible_passage = bible.doPassageQuery(ref)
 
-  @bible_passage
+  ret = Bible::parse_reference(ref)
+  @places = Place.joins(:books).where("books.name = ?", ret[:book]).where("place_refs.chapter = ?", ret[:chapter]).distinct("places.name")
+
+  @places.each do |place|
+    @bible_passage.sub! place.name, "<a class=\"placename\" href=\"#\" place_id=\"#{place.id}\" lat=\"#{place.lat}\" lon=\"#{place.lon}\">#{place.name}</a>"
+  end
 
   haml :index
 end

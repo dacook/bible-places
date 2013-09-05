@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   # validates :name, presence: true, length: { minimum: 3 }, uniqueness: true
   has_many :place_refs
+  has_many :books, through: :place_refs
 
   def self.new_from_openbible(row)
     p = new
