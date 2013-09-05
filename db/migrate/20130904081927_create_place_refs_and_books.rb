@@ -5,8 +5,8 @@ class CreatePlaceRefsAndBooks < ActiveRecord::Migration
     end
 
     create_table :place_refs do |t|
-      t.references  :places
-      t.references  :books
+      t.references  :place
+      t.references  :book
       t.integer     :chapter
       t.integer     :verse
       t.integer     :chapter_end

@@ -11,6 +11,10 @@ require 'haml'
 # require "net/http"
 # require "uri"
 # require 'date'
+require 'pry' #REM
+require './app/models/place_ref.rb'
+require './app/models/place.rb'
+require './app/models/book.rb'
 
 enable :sessions
 
@@ -18,8 +22,9 @@ require './app/helpers/esv_helper.rb'
 get '/' do
 
   bible = ESV.new(settings.esv_key || 'IP')
-
   @bible_passage = bible.doPassageQuery(params[:passage])
+
+  @bible_passage
 
   haml :index
 end

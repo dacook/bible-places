@@ -1,3 +1,15 @@
-#load places from http://www.openbible.info/geo/data/merged.txt (converted to csv) 
-# open file
-# for each line do |line| Place.new_from_csv(line) end
+#lTODO: figure out rake tasks..
+require 'rubygems'
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'pry'
+require './config/application'
+require './config/environments' #database configuration
+require './app/models/place_ref.rb'
+require './app/models/place.rb'
+require './app/models/book.rb'
+require './lib/openbible/load_places.rb'
+
+OpenBible::load_places
+
+exit

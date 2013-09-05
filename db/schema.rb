@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904081927) do
+ActiveRecord::Schema.define(version: 20130905045832) do
 
   create_table "books", force: true do |t|
     t.string "name"
   end
 
   create_table "place_refs", force: true do |t|
-    t.integer "places_id"
-    t.integer "books_id"
+    t.integer "place_id"
+    t.integer "book_id"
     t.integer "chapter"
     t.integer "verse"
     t.integer "chapter_end"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 20130904081927) do
   create_table "places", force: true do |t|
     t.string  "name"
     t.string  "root_name"
-    t.decimal "lat",        precision: 9, scale: 6
-    t.decimal "lon",        precision: 9, scale: 6
+    t.decimal "lat",       precision: 9, scale: 6
+    t.decimal "lon",       precision: 9, scale: 6
     t.string  "verses"
-    t.string  "attributes"
+    t.string  "attribs"
+    t.string  "comments"
   end
 
 end

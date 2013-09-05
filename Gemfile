@@ -14,6 +14,7 @@ gem 'haml'
 group :development do
   gem 'sqlite3'
   gem 'tux' # sinatra console
+  gem 'pry-debugger'
 end
 
 group :production do
