@@ -15,6 +15,7 @@ require 'pry' #REM
 require './app/models/place_ref.rb'
 require './app/models/place.rb'
 require './app/models/book.rb'
+require './lib/bible/reference.rb'
 
 enable :sessions
 
